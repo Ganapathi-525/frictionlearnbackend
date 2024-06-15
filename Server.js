@@ -4,10 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
-app.use(cors({
-    origin: '*',
-    credentials: true,
-  }));
+
 
 const app = express();
 app.use(express.json());
@@ -17,6 +14,12 @@ mongoose.connect('mongodb://localhost:27017/frictionlearn', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+
+
+app.use(cors({
+  origin: '*',
+  credentials: true,
+}));
 
 // User model
 const User = mongoose.model('User', {
